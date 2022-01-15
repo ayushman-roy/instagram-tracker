@@ -34,13 +34,13 @@ account = instagram.get_account(username)
 
 sleep(1)
 
-followerList = instagram.get_followers(account.identifier, 200, 100, delayed=True) 
+followerList = instagram.get_followers(account.identifier, 1000, 100, delayed=True) 
 # parameters: a/c ID, user limit, page data limit, delay between requests
 # get x followers of user, y a time with random delay between requests [in order of occurance]
 
 sleep(1)
 
-followingList = instagram.get_following(account.identifier, 200, 100, delayed=True) 
+followingList = instagram.get_following(account.identifier, 1000, 100, delayed=True) 
 
 followings = []
 followers = []
