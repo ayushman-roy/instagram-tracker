@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, 'instagram-check/lib/python3.9/site-packages')
+sys.path.insert(0, 'absolute path to site-package directory of the codebase')
 # adds the igramscraper module to PATH
 
 from igramscraper.instagram import Instagram  # type: ignore 
@@ -12,6 +12,7 @@ from time import sleep
 instagram = Instagram()
 
 instagram.with_credentials('username', 'password', 'cachepath')
+# access account
 # gets the authentication to allow API calls: username, password, cache path of browser, which i think is optional
 instagram.login(force=False, two_step_verificator=False)
 # logs in to instagram, force decides between whether to refresh the current session, true is refresh allowed
@@ -23,6 +24,7 @@ instagram.login(force=False, two_step_verificator=False)
 sleep(2) 
 
 username = str(input("Enter Username of The Account You Wish to Check: "))
+# result account
 # username for the account under inspection
 
 followerList = []
@@ -34,13 +36,13 @@ account = instagram.get_account(username)
 
 sleep(1)
 
-followerList = instagram.get_followers(account.identifier, 1000, 100, delayed=True) 
+followerList = instagram.get_followers(account.identifier, 10000, 100, delayed=True) 
 # parameters: a/c ID, user limit, page data limit, delay between requests
 # get x followers of user, y a time with random delay between requests [in order of occurance]
 
 sleep(1)
 
-followingList = instagram.get_following(account.identifier, 1000, 100, delayed=True) 
+followingList = instagram.get_following(account.identifier, 10000, 100, delayed=True) 
 
 followings = []
 followers = []
